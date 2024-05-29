@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Target Practice</title>
+    <script id = "vertex-shader" type = "x-shader/x-vertex">#version 300 es
+    in vec4 vPosition;
+    void main(){
+        gl_Position = vPosition;
+    }
+    </script>
+    <script id = "fragment-shader" type = "x-shader/x-fragment">#version 300 es
+    precision mediump float;
+    uniform vec4 color;
+    out vec4 fragColor;
+    void main(){
+        fragColor = vec4(0.3961, 1.0, 0.0, 1.0);
+    }
+    </script>
+    <script type = "module" src = "targetfunctions.js"></script>
+</head>
+<body>
+<div id="game-container">
+    <div id="instructions">
+        <p>Help save the Universe from Aliens and shoot down the flying Aliens! <br>Click "m" to start</p>
+        <p id="feedback">Let's start!</p>
+        <button id="resetButton">Reset</button>
+    </div>
+    <canvas id="gl-canvas" width="900" height="600"></canvas>
+</div>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('https://cdn.wccftech.com/wp-content/uploads/2016/09/spacee.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+
+    #game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    #instructions {
+        z-index: 10;
+        color: yellow;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #feedback {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+        cursor: pointer;
+    }
+</style>
+
+</body>
+</html>
